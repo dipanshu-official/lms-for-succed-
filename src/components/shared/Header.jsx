@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
-function Header({ user, userRole, onLogout }) {
+function Header({ user, userRole, onLogout, onToggleSidebar }) {
   const location = useLocation();
   
   const navItems = [
@@ -23,6 +23,18 @@ function Header({ user, userRole, onLogout }) {
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-lg border-b border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
+          {/* Mobile Menu Button for Admin */}
+          {userRole === 'admin' && (
+            <button
+              onClick={onToggleSidebar}
+              className="p-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors duration-200 lg:hidden"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          )}
+
           {/* Logo and Brand */}
           <Link to={userRole === 'admin' ? '/admin' : '/dashboard'} className="flex items-center space-x-3 hover:opacity-80 transition-opacity duration-200">
             <div className="w-10 h-10 bg-gradient-to-br from-primary-600 to-primary-800 rounded-xl flex items-center justify-center text-white font-bold text-lg">
@@ -35,7 +47,7 @@ function Header({ user, userRole, onLogout }) {
           </Link>
 
           {/* Navigation */}
-          <nav className="flex space-x-1">
+          <nav className={`flex space-x-1 ${userRole === 'admin' ? 'hidden lg:flex' : ''}`}>
             {currentNavItems.map((item) => (
               <Link
                 key={item.path}
