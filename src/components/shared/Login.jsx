@@ -196,9 +196,10 @@ function Login({ onLogin }) {
                         email: demoCredentials.student.email,
                         role: 'student'
                       }, 'student');
+                      navigate('/dashboard');
                     }, 100);
                   }}
-                  className="flex-1 px-3 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors duration-200"
+                  className="flex-1 px-4 py-3 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98] shadow-md hover:shadow-lg"
                 >
                   👨‍🎓 Login as Student
                 </button>
@@ -217,9 +218,10 @@ function Login({ onLogin }) {
                         email: demoCredentials.admin.email,
                         role: 'admin'
                       }, 'admin');
+                      navigate('/admin');
                     }, 100);
                   }}
-                  className="flex-1 px-3 py-2 bg-green-600 text-white text-sm font-medium rounded-lg hover:bg-green-700 transition-colors duration-200"
+                  className="flex-1 px-4 py-3 bg-green-600 text-white text-sm font-medium rounded-lg hover:bg-green-700 transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98] shadow-md hover:shadow-lg"
                 >
                   👨‍💼 Login as Admin
                 </button>
