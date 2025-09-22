@@ -1,21 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const RegistrationForm = () => {
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    dob: '',
-    gender: '',
-    aadhaarNumber: '',
-    fatherMotherName: '',
-    studentContact: '',
-    parentContact: '',
-    email: '',
-    permanentAddress: '',
-    currentAddress: '',
-    city: '',
-    state: '',
-    pincode: '',
+    fullname: "",
+    dob: "",
+    gender: "",
+    aadhaarNumber: "",
+    fatherMotherName: "",
+    studentContact: "",
+    parentContact: "",
+    email: "",
+    currentAddress: "",
+    city: "",
+    state: "",
+    pincode: "",
     aadhaarFile: null,
     passportPhoto: null,
   });
@@ -31,8 +29,8 @@ const RegistrationForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission logic here (e.g., API call)
-    console.log('Form data submitted:', formData);
-    alert('Form submitted successfully!');
+    console.log("Form data submitted:", formData);
+    alert("Form submitted successfully!");
   };
 
   return (
@@ -47,33 +45,31 @@ const RegistrationForm = () => {
             <h2 className="text-xl font-semibold text-gray-700 border-b pb-2 mb-4">
               Basic Student Information
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <div>
-                <label className="block text-sm font-medium text-gray-700">Full Name</label>
-                <div className="mt-1 flex space-x-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+              {/* Full Name */}
+              <div className="md:col-span-3 lg:col-span-1">
+                <label className="block text-sm font-medium text-gray-700">
+                  Full Name
+                </label>
+                <div className="mt-1 flex flex-col sm:flex-row gap-2">
                   <input
                     type="text"
-                    name="firstName"
-                    placeholder="First Name"
-                    value={formData.firstName}
+                    name="fullname"
+                    placeholder="Full Name"
+                    value={formData.fullname}
                     onChange={handleChange}
                     className="flex-1 p-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
                     required
                   />
-                  
-                  <input
-                    type="text"
-                    name="lastName"
-                    placeholder="Last Name"
-                    value={formData.lastName}
-                    onChange={handleChange}
-                    className="flex-1 p-2 border border-gray-300 rounded-md"
-                    required
-                  />
+                
                 </div>
               </div>
-              <div className="md:col-span-1">
-                <label className="block text-sm font-medium text-gray-700">Date of Birth</label>
+
+              {/* Date of Birth */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700">
+                  Date of Birth
+                </label>
                 <input
                   type="date"
                   name="dob"
@@ -83,8 +79,12 @@ const RegistrationForm = () => {
                   required
                 />
               </div>
-              <div className="md:col-span-1">
-                <label className="block text-sm font-medium text-gray-700">Gender</label>
+
+              {/* Gender */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700">
+                  Gender
+                </label>
                 <select
                   name="gender"
                   value={formData.gender}
@@ -98,10 +98,14 @@ const RegistrationForm = () => {
                   <option value="Other">Other</option>
                 </select>
               </div>
-              <div className="md:col-span-1">
-                <label className="block text-sm font-medium text-gray-700">Aadhaar Card Number</label>
+
+              {/* Aadhaar Card Number */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700">
+                  Aadhaar Card Number
+                </label>
                 <input
-                  type="text"
+                  type="number"
                   name="aadhaarNumber"
                   value={formData.aadhaarNumber}
                   onChange={handleChange}
@@ -110,8 +114,12 @@ const RegistrationForm = () => {
                   required
                 />
               </div>
-              <div className="md:col-span-1">
-                <label className="block text-sm font-medium text-gray-700">Upload Aadhaar Card</label>
+
+              {/* Upload Aadhaar Card */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700">
+                  Upload Aadhaar Card
+                </label>
                 <input
                   type="file"
                   name="aadhaarFile"
@@ -119,8 +127,12 @@ const RegistrationForm = () => {
                   className="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
                 />
               </div>
-              <div className="md:col-span-1">
-                <label className="block text-sm font-medium text-gray-700">Upload Passport Photo</label>
+
+              {/* Upload Passport Photo */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700">
+                  Upload Passport Photo
+                </label>
                 <input
                   type="file"
                   name="passportPhoto"
@@ -129,9 +141,13 @@ const RegistrationForm = () => {
                 />
               </div>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6">
+              {/* Father's / Mother's Name */}
               <div>
-                <label className="block text-sm font-medium text-gray-700">Father's / Mother's Name</label>
+                <label className="block text-sm font-medium text-gray-700">
+                  Father's / Mother's Name
+                </label>
                 <input
                   type="text"
                   name="fatherMotherName"
@@ -141,10 +157,14 @@ const RegistrationForm = () => {
                   required
                 />
               </div>
+
+              {/* Student's Contact Number */}
               <div>
-                <label className="block text-sm font-medium text-gray-700">Student's Contact Number</label>
+                <label className="block text-sm font-medium text-gray-700">
+                  Student's Contact Number
+                </label>
                 <input
-                  type="tel"
+                  type="number"
                   name="studentContact"
                   value={formData.studentContact}
                   onChange={handleChange}
@@ -153,10 +173,14 @@ const RegistrationForm = () => {
                   required
                 />
               </div>
+
+              {/* Parent's / Guardian's Contact Number */}
               <div>
-                <label className="block text-sm font-medium text-gray-700">Parent's / Guardian's Contact Number</label>
+                <label className="block text-sm font-medium text-gray-700">
+                  Parent's / Guardian's Contact Number
+                </label>
                 <input
-                  type="tel"
+                  type="number"
                   name="parentContact"
                   value={formData.parentContact}
                   onChange={handleChange}
@@ -165,8 +189,12 @@ const RegistrationForm = () => {
                   required
                 />
               </div>
+
+              {/* Email ID */}
               <div>
-                <label className="block text-sm font-medium text-gray-700">Email ID</label>
+                <label className="block text-sm font-medium text-gray-700">
+                  Email ID
+                </label>
                 <input
                   type="email"
                   name="email"
@@ -186,19 +214,11 @@ const RegistrationForm = () => {
               Address Details
             </h2>
             <div className="space-y-4">
+         
               <div>
-                <label className="block text-sm font-medium text-gray-700">Permanent Address</label>
-                <textarea
-                  name="permanentAddress"
-                  value={formData.permanentAddress}
-                  onChange={handleChange}
-                  rows="3"
-                  className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
-                  required
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700">Current Address</label>
+                <label className="block text-sm font-medium text-gray-700">
+                  Current Address
+                </label>
                 <textarea
                   name="currentAddress"
                   value={formData.currentAddress}
@@ -210,7 +230,9 @@ const RegistrationForm = () => {
               </div>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700">City</label>
+                  <label className="block text-sm font-medium text-gray-700">
+                    City
+                  </label>
                   <input
                     type="text"
                     name="city"
@@ -221,7 +243,9 @@ const RegistrationForm = () => {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700">State</label>
+                  <label className="block text-sm font-medium text-gray-700">
+                    State
+                  </label>
                   <input
                     type="text"
                     name="state"
@@ -232,7 +256,9 @@ const RegistrationForm = () => {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700">Pincode</label>
+                  <label className="block text-sm font-medium text-gray-700">
+                    Pincode
+                  </label>
                   <input
                     type="text"
                     name="pincode"
