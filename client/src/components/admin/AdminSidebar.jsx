@@ -12,6 +12,12 @@ function AdminSidebar({ isOpen, onClose }) {
       description: 'Overview & Analytics'
     },
     { 
+      path: '/new-registration', 
+      label: 'New Registration', 
+      icon: '�',
+      description: 'Register New Students'
+    },
+    { 
       path: '/admin/students', 
       label: 'Students', 
       icon: '👥',
@@ -61,7 +67,7 @@ function AdminSidebar({ isOpen, onClose }) {
         {/* Header */}
         <div className="flex items-center justify-between p-6 border-b border-gray-200">
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-primary-600 to-primary-800 rounded-xl flex items-center justify-center text-white font-bold text-lg">
+            <div className="w-10 h-10  bg-gradient-to-br from-primary-600 to-primary-800 rounded-xl flex items-center justify-center text-blue-600 font-bold text-lg">
               S
             </div>
             <div>
@@ -78,7 +84,7 @@ function AdminSidebar({ isOpen, onClose }) {
         </div>
 
         {/* Navigation */}
-        <nav className="p-4 space-y-2">
+        <nav className="p-4 space-y-2 ">
           {navItems.map((item) => (
             <Link
               key={item.path}
@@ -86,7 +92,7 @@ function AdminSidebar({ isOpen, onClose }) {
               onClick={onClose}
               className={`flex items-center space-x-3 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 group ${
                 location.pathname === item.path
-                  ? 'bg-primary-600 text-white shadow-lg'
+                  ? 'bg-primary-600 text-blue-600 shadow-lg'
                   : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
               }`}
             >
